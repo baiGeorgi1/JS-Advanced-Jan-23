@@ -1,0 +1,19 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "2.evenOrOdd.js",
+  "directories": {
+    "test": "mocha './{,!(node_modules)/**}/*.test.js"
+  },
+  "scripts": {
+    "test": "mocha "
+  },
+  "keywords": [],
+  "author": "Bai Georgi",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
