@@ -18,7 +18,7 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\2.evenOrOdd.js"
+      "program": "${file}"
     }
   ]
 }

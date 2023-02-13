@@ -1,6 +1,6 @@
 const mathEnforcer = require('../4.mathEnforcer.js');
 const { assert } = require('chai');
-const { addFive } = require('../4.mathEnforcer.js');
+const { expect } = require('chai');
 // o	If both parameters are numbers, the function should return their sum. 
 describe('mathEnforcer', () => {
     describe('Inner function (addFiveNum)', () => {
@@ -43,10 +43,10 @@ describe('mathEnforcer', () => {
             assert(mathEnforcer.sum(1, null) === undefined);
         });
         it('Both are numbers => return the result', () => {
-            assert(mathEnforcer.sum(1, 2) === 3.00);
+            expect(mathEnforcer.sum(0.1, 0.2)).to.closeTo(0.3, 0.0002);
             assert(mathEnforcer.sum(-1, 1.5) === 0.50);
             assert(mathEnforcer.sum(-1, -2) === -3);
-        })
+        });
 
     });
 });

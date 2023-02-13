@@ -1,5 +1,20 @@
-function printDeckOfCards(cards) {
+function printDeckOfCards(arr) {
+    const result = [];
     const newCards = [];
+    for (const card of arr) {
+        if (card.length == 3) {
+            let cardFace = card.substring(0, 2);
+            let cardSuit = card[2];
+            newCards.push([cardFace, cardSuit]);
+        } else {
+            let cardFace = card[0];
+            let cardSuit = card[1];
+            newCards.push([cardFace, cardSuit]);
+        }
+    }
+    newCards.forEach(e => {
+        createCard(e[0], e[1]);
+    });
     function createCard(face, suits) {
         const faces = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
         const suitsType = {
@@ -7,37 +22,21 @@ function printDeckOfCards(cards) {
             H: '\u2665',
             D: '\u2666',
             C: '\u2663',
-        }
+        };
 
-        if (!faces.includes(face)) {
-            try {
-                throw new TypeError(`Invalid card: ${face}${suits}`);
-            } catch (err) {
-                return `Invalid card: ${face}${suits}`;
-            }
-        } else if (!suitsType[suits]) {
-            try {
-                throw new TypeError(`Invalid card: ${face}${suits}`);
-            } catch (err) {
-                return `Invalid card: ${face}${suits}`;
-            }
+        if (!faces.includes(face) || !suitsType.hasOwnProperty(suits)) {
+            console.log(`Invalid card: ${face}${suits}`);
+            return;
         }
-
         let cardType = {
             face,
             suitsType,
             toString() {
                 return this.face + this.suitsType[suits];
             }
-        }
-        newCards.push(cardType)
+        };
+        result.push(cardType.toString());
     }
-    for (const card of cards) {
-        let suit = card[card.length - 1];
-        let face = card.substring(0, card.length - 1);
-
-        createCard(face, suit);
-    }
-    return newCards.toString()
+    console.log(result.join(' '));
 }
-console.log(printDeckOfCards(['AS', '1D', 'KH', '2C']))
+(printDeckOfCards(['5S', '3D', 'QD', '1C']));

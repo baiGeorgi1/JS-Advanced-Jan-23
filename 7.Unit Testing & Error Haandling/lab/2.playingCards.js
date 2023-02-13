@@ -5,7 +5,7 @@ function cards(face, suits) {
         H: '\u2665',
         D: '\u2666',
         C: '\u2663',
-    }
+    };
 
     if (!faces.includes(face)) {
         throw new TypeError('Wrong face');
@@ -18,8 +18,8 @@ function cards(face, suits) {
         toString() {
             return this.face + this.suitsType[suits];
         }
-    }
+    };
     return cardType.toString();
 }
-let card = cards('3', 'H')
+let card = cards('1', 'H');
 console.log(card);
