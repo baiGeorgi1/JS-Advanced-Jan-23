@@ -10,7 +10,6 @@ function validate() {
     let btn = document.getElementById('submit');
     let isCompany = true;
 
-
     companyBox.addEventListener('change', (event) => {
         if (event.currentTarget.checked) {
             companyInfo.style.display = 'block';
